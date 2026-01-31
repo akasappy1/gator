@@ -26,7 +26,13 @@ func main() {
 	var cmds Commands
 	cmds.commandsList = make(map[string]func(*State, Command) error)
 
-	cmds.register("login", handlerLogins)
+	cmds.register("login", handlerLogin)
+	cmds.register("register", handlerRegister)
+	cmds.register("reset", handlerReset)
+	cmds.register("users", handlerUsers)
+	cmds.register("agg", handlerAgg)
+	cmds.register("addfeed", handlerAddfeed)
+	cmds.register("feeds", handlerFeeds)
 	inputs := os.Args
 	if len(inputs) < 2 {
 		fmt.Printf("Error: At least two arguments expected (ie login and username.)")
